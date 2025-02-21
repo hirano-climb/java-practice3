@@ -1,0 +1,46 @@
+<!-- src/main/resources/templates/contactForm.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <title>お問い合わせフォーム</title>
+</head>
+<body>
+
+    <div th:replace="header :: header"></div>
+
+    <main>
+        <form th:object="${contactForm}" method="post" action="#">
+            <div class="inputform">
+                <label class="namelabel">氏名</label>
+                <input type="text" th:field="*{name}"/>
+            </div>
+            <div class="inputform">
+                <label class="namelabel">メールアドレス</label>
+                <input type="email" th:field="*{email}"/>
+            </div>
+            <div class="inputform">
+                <label class="namelabel">電話番号</label>
+                <input type="tel" th:field="*{tel}"/>
+            </div>
+            <div class="inputform">
+                <label class="namelabel">お問い合わせ内容</label>
+                <div th:each="inquirytype : ${inquiryTypes}">
+                    <label>
+                        <input type="radio"
+                               name="inquiry"
+                               th:value="${inquirytype}"
+                               th:checked="${inquirytype.equals(contactForm.inquiry)}" />
+                        <span th:text="${inquirytype}"></span>
+                    </label>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <div th:replace="footer :: footer"></div>
+
+</body>
+</html>

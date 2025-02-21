@@ -1,0 +1,13 @@
+<!-- src/main/resources/templates/header.html -->
+<div th:fragment="header">
+    <header>
+        <nav>
+            <p>DEMO</p>
+            <ul>
+                <li th:each="link : ${headerLinks}" >
+                    <a th:href="@{#}" th:text="${link}"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
