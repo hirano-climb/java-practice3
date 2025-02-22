@@ -23,13 +23,5 @@ public class ContactService {
         inquiryTypes.add("△△△の問い合わせ");
         return inquiryTypes;
     }
-
-    public ArrayList<String> getHeaderLinks() {
-        ArrayList<String> headerLinks = new ArrayList<>();
-        headerLinks.add("TOP");
-        headerLinks.add("ABOUT");
-        headerLinks.add("CONTACT");
-        return headerLinks;
-    }
 }
 
