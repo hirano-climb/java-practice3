@@ -5,7 +5,7 @@
             <p>DEMO</p>
             <ul>
                 <li th:each="link : ${headerLinks}" >
-                    <a th:href="@{#}" th:text="${link}"></a>
+                    <a th:text="${link.key}"  th:href="@{${link.value}}" ></a>
                 </li>
             </ul>
         </nav>

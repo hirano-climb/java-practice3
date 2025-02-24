@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 @Controller
@@ -22,7 +23,7 @@ public class ContactController {
 
         ContactForm contactForm = contactService.getDefaultcontactForm();
         ArrayList<String> inquiryTypes = contactService.getInquiryTypes();
-        ArrayList<String> headerLinks = getHeaderLinks();
+        HashMap<String, String> headerLinks = getHeaderLinks();
 
         model.addAttribute("contactForm", contactForm);
         model.addAttribute("inquiryTypes", inquiryTypes);
@@ -31,11 +32,11 @@ public class ContactController {
         return "contact";
     }
 
-    public ArrayList<String> getHeaderLinks() {
-        ArrayList<String> headerLinks = new ArrayList<>();
-        headerLinks.add("TOP");
-        headerLinks.add("ABOUT");
-        headerLinks.add("CONTACT");
+    public HashMap<String, String> getHeaderLinks() {
+        HashMap<String, String> headerLinks = new HashMap<>();
+        headerLinks.put("TOP", "/top");
+        headerLinks.put("ABOUT","/about");
+        headerLinks.put("CONTACT", "/contact");
         return headerLinks;
     }
 }
